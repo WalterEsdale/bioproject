@@ -11,8 +11,22 @@ def inputenz (diz):
             return selectedEnzyme, diz[selectedEnzyme]
 
 
+
+def controllaInputDna (sequenza):
+    caratteri = "ACGT"
+
+    for carattere in caratteri :
+        sequenza = sequenza.replace(carattere, "")
+
+    return len(sequenza) == 0
+
+
 def inputdna ():
-    mydna = input("inserire il filamento di dna : ")
-    return mydna
+    while True:
+        mydna = input("inserire il filamento di dna (in maiuscolo) : ")
+        if controllaInputDna(mydna):
+            return mydna
+        else :
+            print("la sequenza inserita contiene caratteri inusuali")
 
 
