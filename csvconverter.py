@@ -2,7 +2,7 @@ import csv
 
 def csv_to_dict():
 
-    #la funzione si occupa di convertire il file csv in un dizionario 
+    #la funzione si occupa di convertire il file csv in un dizionario
     #le chiavi sono il nome dell'enzima mentre i valori sono la zona di restrizione
     
     filepath='enzymesequences.csv'

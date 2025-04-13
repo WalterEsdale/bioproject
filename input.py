@@ -1,3 +1,19 @@
+def controllaInputEnz (enz):
+    #le informazioni sul csv degli enzimi con i numeri non so come implementarle nel programma quindi vengono scartate
+    #insieme a quelle che non hanno lo / per individuare la posizione precisa del taglio 
+
+    has_numbers = any(char.isdigit() for char in enz[1])
+    
+    if has_numbers:
+        print("has numbers")
+        return False
+    else :
+        if '/' in enz:
+            return True
+        else :
+            print("no /")
+            return False
+
 
 def inputenz (diz):
 
@@ -6,7 +22,7 @@ def inputenz (diz):
     
     while True:
         selectedEnzyme = input("Inserire l'enzima di interesse : ")
-        if selectedEnzyme in diz :
+        if selectedEnzyme in diz and controllaInputEnz(diz[selectedEnzyme]):
             print(f"hai scelto l'enzima {selectedEnzyme} : {diz[selectedEnzyme]}")
             return selectedEnzyme, diz[selectedEnzyme]
 
@@ -23,7 +39,7 @@ def controllaInputDna (sequenza):
 
 def inputdna ():
     while True:
-        mydna = input("inserire il filamento di dna (in maiuscolo) : ")
+        mydna = input("\ninserire il filamento di dna (in maiuscolo) : ")
         if controllaInputDna(mydna):
             return mydna
         else :
